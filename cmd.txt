@@ -1,0 +1,3 @@
+docker run --name apa -d -p 8080:80 httpd
+
+docker cp /Users/matsushimayuuki/Desktop/test/docker_practice/index.html apa:/usr/local/apache2/htdocs/

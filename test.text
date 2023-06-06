@@ -1,1 +1,10 @@
-docker run --name mysql -dit --net=net -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=db -e MYSQL_USER=user -e MYSQL_PASSWORD=1234 mysql --chracter-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_naitve_password
+docker network create net
+
+docker network ls
+
+docker run --name mysql1000ex11 -dit --net=net -e MYSQL_ROOT_PASSWORD=myrootpass -e MYSQL_DATABASE=wordpress000db -e MYSQL_USER=wordpress000kun -e MYSQL_PASSWORD=wkunpass mysql --chracter-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_naitve_password
+
+docker run --name wordpress000ex12 -dit --net=net -p 8090:80 -e WORDPRESS_DB_HOST=mysql1000ex11 -e WORDPRESS_DB_NAME=wordpress000db -e WORDPRESS_DB_USER=wordpress000kun -e WORDPRESS_DB_PASSWORD=wkunpass wordpress
+
+
+http://localhost:8080
