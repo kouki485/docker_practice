@@ -8,3 +8,15 @@ docker run --name wordpress000ex12 -dit --net=net -p 8090:80 -e WORDPRESS_DB_HOS
 
 
 http://localhost:8080
+
+
+#bind mount
+docker run --name apa -d -p 8080:80 -v /Users/event/Desktop/test/docker_practice/apa_folder:/usr/local/apache2/htdocs httpd
+
+#volume mount
+docker volume create apa
+docker run --name apa -d -p 8080:80 -v apa:/usr/local/apache2/htdocs httpd
+docker volume inspect apa
+
+#build
+docker build -t practice /Users/event/Desktop/test/docker_practice/apa_folder
